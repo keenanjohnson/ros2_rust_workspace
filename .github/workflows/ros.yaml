@@ -3,10 +3,9 @@
 name: ROS
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+  push:
+  workflow_dispatch:
     
 jobs:
   test:
