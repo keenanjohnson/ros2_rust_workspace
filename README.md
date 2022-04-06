@@ -1,9 +1,14 @@
 # ros2_rust_workspace
+
 A template for developing ROS2 applications in Rust using VSCode as IDE inside of a Docker container
+
+It uses the un-official (for now) [ros2_rust](https://github.com/ros2-rust/ros2_rust) project
+
+## Inspiration
 
 I was heavily inspired by Allison Thackston's (@athackst)
 [vscode_ros2_workspace](https://github.com/athackst/vscode_ros2_workspace),
-so please check out that project and give it a star or two :).
+so please check out that project and give it a star!
 
 ## How to use
 
