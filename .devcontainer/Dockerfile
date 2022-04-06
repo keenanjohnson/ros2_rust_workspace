@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.59.0 -y
 ENV PATH=/root/.cargo/bin:$PATH
-ENV PATH=/ros/.cargo/bin:$PATH
 
 ##########################
 ## ros2_rust install
