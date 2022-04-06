@@ -1,4 +1,4 @@
-# ros2_rust_workspace
+# Ros2 Rust Workspace
 
 A template for developing ROS2 applications in Rust using VSCode as IDE inside of a Docker container
 
