@@ -40,7 +40,7 @@ RUN mkdir src
 WORKDIR /src/
 # Copy the .repos file into container for vcs
 COPY . .
-RUN vcs import --skip-existing /src < /src/ros2.repos
+RUN vcs import --skip-existing /src < ./src/ros2.repos
 
 ARG WORKSPACE
 WORKDIR /src
