@@ -42,7 +42,7 @@ COPY . .
 RUN vcs import /src < /src/src/ros2.repos
 
 # Build the binaries
-WORKDIR /src/src/
+WORKDIR /src
 RUN . /opt/ros/foxy/setup.sh && colcon build --packages-up-to rclrs_examples
 
 # Set up auto-source of workspace for ros user
