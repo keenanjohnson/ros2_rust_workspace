@@ -35,16 +35,16 @@ RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://githu
 RUN cargo install cargo-ament-build
 
 # Install the ros2 messages
+# Copy the .repos file into container for vcs
 RUN mkdir src
 WORKDIR /src/
 # Copy the .repos file into container for vcs
 COPY . .
-RUN vcs import /src < /src/ros2_rust_foxy.repos
+RUN vcs import --skip-existing /src < ./src/ros2.repos
 
-# Build the binaries
+ARG WORKSPACE
 WORKDIR /src
-RUN . /opt/ros/foxy/setup.sh && colcon build --packages-up-to flight_controller
+RUN . /opt/ros/foxy/setup.sh && colcon build --packages-up-to rclrs_examples
 
 # Set up auto-source of workspace for ros user
-#ARG WORKSPACE
-#RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> ~/.bashrc
+RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> ~/.bashrc
