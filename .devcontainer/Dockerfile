@@ -49,8 +49,9 @@ RUN cargo install cargo-ament-build
 COPY . .
 RUN vcs import --skip-existing < src/ros2.repos src
 
+ARG WORKSPACE
+WORKDIR ${WORKSPACE}/src
 RUN . /opt/ros/foxy/setup.sh && colcon build --packages-up-to rclrs_examples
 
 # Set up auto-source of workspace for ros user
-#ARG WORKSPACE
-#RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> ~/.bashrc
+RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> ~/.bashrc
