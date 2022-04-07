@@ -39,7 +39,7 @@ RUN mkdir src
 WORKDIR /src/
 # Copy the .repos file into container for vcs
 COPY . .
-RUN vcs import /src < /src/ros2.repos
+RUN vcs import /src < /src/src/ros2.repos
 
 # Build the binaries
 WORKDIR /src
