@@ -44,11 +44,6 @@ RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://githu
 # Install the cargo-ament-build plugin
 RUN cargo install cargo-ament-build
 
-# Install the ros2 messages
-# Copy the .repos file into container for vcs
-COPY . .
-RUN vcs import --skip-existing < src/ros2.repos src
-
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
-RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/root/.bashrc
+RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
