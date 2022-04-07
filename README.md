@@ -43,21 +43,3 @@ If you don't see the pop-up, click on the little green square in the bottom left
 In the dialog, select "Remote Containers: Reopen in container"
 
 VSCode will build the dockerfile inside of `.devcontainer` for you.  If you open a terminal inside VSCode (Terminal->New Terminal), you should see that your username has been changed to `ros`, and the bottom left green corner should say "Dev Container"
-
-### Running the publisher and subscriber
-
-Publisher:
-
-```
-# Do this in a new terminal
-. ./install/setup.sh
-ros2 run rclrs_examples rclrs_publisher
-```
-
-Subscriber:
-
-```
-# Do this in a new terminal
-. ./install/setup.sh
-ros2 run rclrs_examples rclrs_subscriber
-```
