@@ -4,6 +4,9 @@ A template for developing ROS2 applications in Rust using VSCode as IDE inside o
 
 It uses the un-official (for now) [ros2_rust](https://github.com/ros2-rust/ros2_rust) project
 
+## Status
+This is still in development and might not yet work perfectly! Jump in and file issues or submit changes!
+
 ## Inspiration
 
 I was heavily inspired by Allison Thackston's (@athackst)
