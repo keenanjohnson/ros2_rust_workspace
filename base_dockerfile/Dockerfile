@@ -31,4 +31,4 @@ RUN pip install --upgrade pytest colcon-package-selection
 # Install the colcon-cargo and colcon-ros-cargo plugins
 RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://github.com/colcon/colcon-ros-cargo.git
 # Install the cargo-ament-build plugin
-RUN cargo install -vv cargo-ament-build
+RUN cargo install -vv --debug cargo-ament-build
