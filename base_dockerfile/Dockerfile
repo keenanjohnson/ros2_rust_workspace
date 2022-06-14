@@ -33,4 +33,4 @@ RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://githu
 # Install the cargo-ament-build plugin 
 # Disabled for now
 # See https://github.com/keenanjohnson/ros2_rust_workspace/issues/21
-# RUN cargo install -vv --debug --git https://github.com/ros2-rust/cargo-ament-build
+RUN cargo install -vv --debug cargo-ament-build
