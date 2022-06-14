@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.59.0 -y
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.61.0 -y
 ENV PATH=/root/.cargo/bin:$PATH
 
 ##########################
@@ -30,5 +30,7 @@ RUN pip install --upgrade pytest colcon-package-selection
 
 # Install the colcon-cargo and colcon-ros-cargo plugins
 RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://github.com/colcon/colcon-ros-cargo.git
-# Install the cargo-ament-build plugin
-RUN cargo install -vv --debug cargo-ament-build
+# Install the cargo-ament-build plugin 
+# Disabled for now
+# See https://github.com/keenanjohnson/ros2_rust_workspace/issues/21
+# RUN cargo install -vv --debug --git https://github.com/ros2-rust/cargo-ament-build
