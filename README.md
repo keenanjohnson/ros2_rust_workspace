@@ -55,7 +55,7 @@ Setup ROS:
 cd /workspaces/ros2_rust_workspace/
 vcs import /workspaces/ros2_rust_workspace/src < /workspaces/ros2_rust_workspace/src/ros2.repos
 source /opt/ros/foxy/setup.bash 
-colcon build --packages-up-to rclrs_examples
+colcon build
 ```
 
 This will build the examples from the ros2_rust project.
