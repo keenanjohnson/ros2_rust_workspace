@@ -17,6 +17,7 @@ on:
     branches: [ main ]
     paths:
     - 'base_dockerfile/**'
+    - '.github/workflows/**'
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -80,7 +81,7 @@ jobs:
         uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8
         with:
           context: ./base_dockerfile
-          platforms: linux/amd64
+          platforms: linux/amd64, linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
