@@ -37,7 +37,7 @@ RUN cargo install --debug cargo-ament-build
 # Import ROS Deps
 WORKDIR /workspaces/ros2_rust_workspace/
 COPY ros2.repos .
-RUN vcs import /workspaces/ros2_rust_workspace/src < /workspaces/ros2_rust_workspace/src/ros2.repos
+RUN vcs import /workspaces/ros2_rust_workspace/src < /workspaces/ros2_rust_workspace/ros2.repos
 
 # Build Rust / ROS2 Examples
 RUN source /opt/ros/foxy/setup.bash && colcon build --packages-up-to examples_rclrs_message_demo
