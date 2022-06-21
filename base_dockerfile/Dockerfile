@@ -37,7 +37,6 @@ RUN cargo install --debug cargo-ament-build
 # Import ROS Deps
 RUN mkdir /workspaces/ros2_rust_workspace/
 RUN vcs import /workspaces/ros2_rust_workspace/src < /workspaces/ros2_rust_workspace/src/ros2.repos
-source /opt/ros/foxy/setup.bash 
 
 # Build Rust / ROS2 Examples
 WORKDIR /workspaces/ros2_rust_workspace/
