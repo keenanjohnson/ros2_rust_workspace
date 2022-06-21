@@ -55,7 +55,7 @@ Setup ROS:
 cd /workspaces/ros2_rust_workspace/
 vcs import /workspaces/ros2_rust_workspace/src < /workspaces/ros2_rust_workspace/src/ros2.repos
 source /opt/ros/foxy/setup.bash 
-colcon build
+colcon build --packages-up-to examples_rclrs_message_demo
 ```
 
 This will build the examples from the ros2_rust project.
@@ -67,7 +67,7 @@ Publisher:
 ```
 # Do this in a new terminal
 . ./install/setup.sh
-ros2 run rclrs_examples rclrs_publisher
+ros2 run examples_rclrs_minimal_pub_sub minimal_publisher
 ```
 
 Subscriber:
@@ -75,5 +75,5 @@ Subscriber:
 ```
 # Do this in a new terminal
 . ./install/setup.sh
-ros2 run rclrs_examples rclrs_subscriber
+ros2 run examples_rclrs_minimal_pub_sub minimal_subscriber
 ```
