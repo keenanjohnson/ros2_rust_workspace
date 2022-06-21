@@ -1,0 +1,20 @@
+[patch.crates-io.std_srvs]
+path = "/workspaces/ros2_rust_workspace/install/std_srvs/share/std_srvs/rust"
+
+[patch.crates-io.rosgraph_msgs]
+path = "/workspaces/ros2_rust_workspace/install/rosgraph_msgs/share/rosgraph_msgs/rust"
+
+[patch.crates-io.rclrs_example_msgs]
+path = "/workspaces/ros2_rust_workspace/install/rclrs_example_msgs/share/rclrs_example_msgs/rust"
+
+[patch.crates-io.lifecycle_msgs]
+path = "/workspaces/ros2_rust_workspace/install/lifecycle_msgs/share/lifecycle_msgs/rust"
+
+[patch.crates-io.action_msgs]
+path = "/workspaces/ros2_rust_workspace/install/action_msgs/share/action_msgs/rust"
+
+[patch.crates-io.builtin_interfaces]
+path = "/workspaces/ros2_rust_workspace/install/builtin_interfaces/share/builtin_interfaces/rust"
+
+[patch.crates-io.rosidl_runtime_rs]
+path = "/workspaces/ros2_rust_workspace/install/rosidl_runtime_rs/share/rosidl_runtime_rs/rust"
