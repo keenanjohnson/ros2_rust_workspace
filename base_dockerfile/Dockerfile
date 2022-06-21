@@ -35,10 +35,9 @@ RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://githu
 RUN cargo install --debug cargo-ament-build
 
 # Import ROS Deps
-RUN mkdir /workspaces/ros2_rust_workspace/
+WORKDIR /workspaces/ros2_rust_workspace/
 RUN vcs import /workspaces/ros2_rust_workspace/src < /workspaces/ros2_rust_workspace/src/ros2.repos
 
 # Build Rust / ROS2 Examples
-WORKDIR /workspaces/ros2_rust_workspace/
 RUN source /opt/ros/foxy/setup.bash && colcon build --packages-up-to examples_rclrs_message_demo
 
