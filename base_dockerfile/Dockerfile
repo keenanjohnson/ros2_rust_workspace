@@ -19,6 +19,8 @@ ENV PATH=/root/.cargo/bin:$PATH
 RUN apt-get update && apt-get install -y \
     python3-vcstool \
     libclang-dev \
+    curl \
+    vim \
     clang \
     python3.9 \
     python3.9-dev \
