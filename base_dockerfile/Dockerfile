@@ -37,4 +37,11 @@ ENV PATH=/root/.cargo/bin:$PATH
 RUN rustup toolchain install nightly
 
 # Install the cargo-ament-build plugin
-RUN cargo +nightly install -Z sparse-registry --debug cargo-ament-build 
+RUN cargo +nightly install -Z sparse-registry --debug cargo-ament-build
+
+# Build the ros2_rust examples and ROS dependancies
+WORKDIR /workspaces/ros2_rust_workspace/
+RUN vcs import src < src/ros2_rust/ros2_rust_foxy.repos
+RUN . /opt/ros/foxy/setup.sh \
+    && colcon build --packages-up-to examples_rclrs_message_demo
+
