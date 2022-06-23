@@ -40,6 +40,7 @@ RUN rustup toolchain install nightly
 RUN cargo +nightly install -Z sparse-registry --debug cargo-ament-build
 
 # Build the ros2_rust examples and ROS dependancies
+WORKDIR /workspaces/ros2_rust_workspace/src
 WORKDIR /workspaces/ros2_rust_workspace/
 RUN vcs import src < src/ros2_rust/ros2_rust_foxy.repos
 RUN . /opt/ros/foxy/setup.sh \
