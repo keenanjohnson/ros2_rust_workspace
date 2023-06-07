@@ -77,3 +77,9 @@ Subscriber:
 . ./install/setup.sh
 ros2 run examples_rclrs_minimal_pub_sub minimal_subscriber
 ```
+
+### Author
+
+[Keenan Johnson](https://www.keenanjohnson.com/) is an electrical and software engineer with experience building IoT fleets of all shapes and sizes.
+
+[Reach out](https://www.keenanjohnson.com/consulting) if you need help or are interested in hiring me as a consultant for your project.
