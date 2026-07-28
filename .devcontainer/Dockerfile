@@ -1,4 +1,4 @@
-# Ros2 Foxy runs on ubuntu focal
+# ROS 2 Jazzy runs on Ubuntu Noble
 FROM ghcr.io/keenanjohnson/ros2_rust_workspace:main
 ARG DEBIAN_FRONTEND=noninteractive
 

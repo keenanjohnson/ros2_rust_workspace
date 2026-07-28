@@ -53,8 +53,8 @@ Once inside the container, it's easy to setup ROS and build the rust / ROS examp
 Setup ROS:
 ```
 cd /workspaces/ros2_rust_workspace/
-vcs import src < src/ros2_rust/ros2_rust_foxy.repos
-. /opt/ros/foxy/setup.sh
+vcs import src < src/ros2_rust/ros2_rust_jazzy.repos
+. /opt/ros/jazzy/setup.sh
 colcon build --packages-up-to examples_rclrs_message_demo
 ```
 
