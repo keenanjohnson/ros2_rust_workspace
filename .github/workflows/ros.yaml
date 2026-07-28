@@ -15,16 +15,19 @@ jobs:
       - 
         name: Checkout code
         uses: actions/checkout@v3
+        with:
+          submodules: true
       -
         name: Test
         run: |
-          docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
+          docker build -t ros2rust-base ./base_dockerfile
+          docker build -t $GITHUB_REPOSITORY --build-arg BASE_IMAGE=ros2rust-base -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
           vcs import --skip-existing < src/ros2.repos src \
           && apt-get update \
           && rosdep update \
-          && rosdep install --from-paths src --ignore-src -y --rosdistro=foxy \
+          && rosdep install --from-paths src --ignore-src -y --rosdistro=jazzy \
           && colcon build --cmake-args '-DCMAKE_BUILD_TYPE=Release' -Wall -Wextra -Wpedantic \
           && colcon test \
           "

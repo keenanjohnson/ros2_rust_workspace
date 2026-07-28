@@ -1,4 +1,4 @@
-FROM ros:foxy as base
+FROM ros:jazzy AS base
 ARG DEBIAN_FRONTEND=noninteractive
 
 ##########################
@@ -11,30 +11,21 @@ RUN apt-get update && apt-get install -y \
     curl \
     vim \
     clang \
-    curl \
-    vim \
-    python3.9 \
-    python3.9-dev \
     python3-pip \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pytest colcon-package-selection
+# Ubuntu 24.04 marks the system Python as externally managed (PEP 668),
+# so pip needs --break-system-packages to install into it. No --upgrade:
+# upgrading pytest would try to replace the Debian-owned pluggy package.
+RUN pip install --break-system-packages pytest colcon-package-selection
 
 # Install the colcon-cargo and colcon-ros-cargo plugins
-RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://github.com/colcon/colcon-ros-cargo.git
+RUN pip install --break-system-packages git+https://github.com/colcon/colcon-cargo.git git+https://github.com/colcon/colcon-ros-cargo.git
 
-# Install Rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.61.0 -y
+# Install Rust (same toolchain as upstream ros2_rust CI)
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.85.0 -y
 ENV PATH=/root/.cargo/bin:$PATH
 
-# Switch Rust to the nightly build.
-# Note we are currently using the nightly build for the 
-# sparse update feature in crates.io index.
-# Rustup switches to the nightly build
-# See this blog post for more info on the spare-registry feature
-# https://blog.rust-lang.org/2022/06/22/sparse-registry-testing.html
-RUN rustup toolchain install nightly
-
 # Install the cargo-ament-build plugin
-RUN cargo +nightly install -Z sparse-registry --debug cargo-ament-build 
+RUN cargo install --debug cargo-ament-build
